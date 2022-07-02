@@ -1,0 +1,30 @@
+{
+  "name": "rsnode2022q2-savt5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitaliSavelyev/rsnode2022Q2-savT5.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VitaliSavelyev/rsnode2022Q2-savT5/issues"
+  },
+  "homepage": "https://github.com/VitaliSavelyev/rsnode2022Q2-savT5#readme",
+  "dependencies": {
+    "apollo-server": "^3.9.0",
+    "apollo-server-express": "^3.9.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.5.0",
+    "nodemon": "^2.0.18"
+  }
+}

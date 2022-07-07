@@ -22,7 +22,7 @@ const typeDefsGenre = gql`
     
     #Inputs
     input CreateGenreInput {
-        id: ID!,
+        id: ID,
         name: String!,
         description: String,
         country: String,

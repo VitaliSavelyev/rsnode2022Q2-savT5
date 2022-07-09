@@ -25,7 +25,7 @@ const resolversBand = {
         genres: async ({ genresIds }, args, {dataSources}) => {
             const promises = genresIds.map(elem => {
                 return new Promise(async (resolve, reject) => {
-                    const genre = await dataSources.genresAPI.getGenre(genresIds)
+                    const genre = await dataSources.genresAPI.getGenre(elem)
                     genre.id = genre._id
                     resolve(genre);
                 })

@@ -5,6 +5,7 @@ const { resolvers } = require('./modules/resolvers');
 const UsersAPI = require('./modules/users/ServerUser')
 const GenresAPI = require("./modules/genres/ServerGenres");
 const BandsAPI = require("./modules/bands/ServerBand");
+const ArtistsAPI = require("./modules/artists/ServerArtist");
 
 async function startApolloServer() {
   const server = new ApolloServer({
@@ -14,7 +15,8 @@ async function startApolloServer() {
       return {
         usersAPI: new UsersAPI(),
         genresAPI: new GenresAPI(),
-        bandsAPI: new BandsAPI()
+        bandsAPI: new BandsAPI(),
+        artistsAPI: new ArtistsAPI(),
       };
     },
     context: ({ req }) => {

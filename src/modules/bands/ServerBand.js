@@ -14,8 +14,8 @@ class BandsAPI extends RESTDataSource {
     getBand(id) {
         return this.get(`/${encodeURIComponent(id)}`);
     }
-    createBand(newGenreData) {
-        return this.post('', newGenreData);
+    createBand(newBandData) {
+        return this.post('', newBandData);
     }
     async getBands(offset = 0, limit = 30) {
         const bands = await this.get('', { offset, limit });

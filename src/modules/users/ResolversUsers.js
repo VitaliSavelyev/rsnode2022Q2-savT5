@@ -2,15 +2,15 @@ const resolversUser = {
   Query: {
     user: async (parent, { id }, { dataSources }) => {
       return dataSources.usersAPI.getUser(id)
-    }
-  },
-  Mutation: {
-    createUser(parent, args, { dataSources }) {
-      return dataSources.usersAPI.registerUser(args.createUserInput)
     },
-    getJWT(parent, args, { dataSources }) {
+    jwt(parent, args, { dataSources }) {
       return dataSources.usersAPI.getJWT(args)
     },
+  },
+  Mutation: {
+    createUser(parent, {createUserInput }, { dataSources }) {
+      return dataSources.usersAPI.registerUser(createUserInput)
+    }
   }
 };
 

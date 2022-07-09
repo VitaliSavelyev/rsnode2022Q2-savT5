@@ -9,7 +9,7 @@ const typeDefsUsers = gql`
     type User {
         id: ID!
         firstName: String!
-        secondName: String!
+        lastName: String!
         password: String!
         email: String!
     }
@@ -17,6 +17,7 @@ const typeDefsUsers = gql`
     #Queries
     type Query {
         user(id: ID!): User
+        jwt(password: String!, email: String!): JWT
     }
 
     #Inputs
@@ -31,7 +32,6 @@ const typeDefsUsers = gql`
     #Mutations
     type Mutation {
         createUser(createUserInput: CreateUserInput): User!
-        getJWT(password: String!, email: String!): JWT
     }
 `;
 

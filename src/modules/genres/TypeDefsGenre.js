@@ -22,7 +22,6 @@ const typeDefsGenre = gql`
     
     #Inputs
     input CreateGenreInput {
-        id: ID,
         name: String!,
         description: String,
         country: String,
@@ -30,7 +29,6 @@ const typeDefsGenre = gql`
     }
     
     input UpdateGenreInput {
-        id: ID!,
         name: String,
         description: String,
         country: String,
@@ -41,7 +39,7 @@ const typeDefsGenre = gql`
     type Mutation {
     createGenre(createGenreInput: CreateGenreInput): Genre!,
     deleteGenre(id: ID!): DELETE,
-    updateGenre(updateGenreInput: UpdateGenreInput): Genre!,
+    updateGenre(id: ID!, updateGenreInput: UpdateGenreInput): Genre!,
     }
 `;
 

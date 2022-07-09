@@ -11,9 +11,12 @@ const typeDefsBand = gql`
     }
     
     type Member {
-        artist: String
+        id: ID!
+        firstName: String,
+        secondName: String,
+        middleName: String,
         instrument: String
-        years: String
+        years: [String]
     }
     
     #Queries
@@ -24,35 +27,36 @@ const typeDefsBand = gql`
     
     #Inputs
     input CreateBandInput {
-        id: ID!
         name: String!
         origin: String
         members: [MemberInput]
         website: String
-        genresIds: [String]
+        genresIds: [ID]
     }
     
     input UpdateBandInput {
-        id: ID!
         name: String
         origin: String
         members: [MemberInput]
         website: String
-        genresIds: [String]
+        genresIds: [ID]
     }
     
     input MemberInput {
-        artist: String
+        id: ID!
+        firstName: String,
+        secondName: String,
+        middleName: String,
         instrument: String
-        years: String
+        years: [Int]
     }
     
     #Mutations
     type Mutation {
     createBand(createBandInput: CreateBandInput): Band!,
     deleteBand(id: ID!): DELETE,
-    updateBand(updateBandInput: UpdateBandInput): Band!,
+    updateBand(id: ID!, updateBandInput: UpdateBandInput): Band!,
     }
 `;
 
-module.exports = {typeDefsBand}
+module.exports = { typeDefsBand }

@@ -3,6 +3,8 @@ const { ApolloServer } = require('apollo-server-express');
 const { typeDefs } = require('./modules/TypeDefs');
 const { resolvers } = require('./modules/resolvers');
 const UsersAPI = require('./modules/users/ServerUser')
+const GenresAPI = require("./modules/genres/ServerGenres");
+const BandsAPI = require("./modules/bands/ServerBand");
 
 async function startApolloServer() {
   const server = new ApolloServer({
@@ -11,10 +13,11 @@ async function startApolloServer() {
     dataSources: () => {
       return {
         usersAPI: new UsersAPI(),
+        genresAPI: new GenresAPI(),
+        bandsAPI: new BandsAPI()
       };
     },
     context: ({ req }) => {
-      console.log(100, req.headers.authorization)
       const token = req.headers.authorization || '';
       return { token };
     },

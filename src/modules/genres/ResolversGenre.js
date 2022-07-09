@@ -2,23 +2,25 @@
 
 const resolversGenre = {
   Query: {
-    genres: () => {},
-    genre: (id) => {}
+    genre: (parent, { id }, { dataSources }) => {
+      return dataSources.genresAPI.getGenre(id);
+    },
+    genres: (parent, { offset, limit }, { dataSources }) => {
+      return dataSources.genresAPI.getGenres(offset, limit);
+    },
   },
   Mutation: {
-    createGenre(parent, args) {
-      const newUser = args;
-      return newUser
+    createGenre: (parent, { createGenreInput }, { dataSources }) => {
+      return dataSources.genresAPI.createGenre(createGenreInput);
     },
-    updateGenre(parent, args) {
-      const newUser = args;
-      return newUser
+    deleteGenre: (parent, { id }, { dataSources }) => {
+      return dataSources.genresAPI.deleteGenre(id);
     },
-    deleteGenre(parent, args) {
-      const newUser = args;
-      return newUser
-    }
-  }
+    updateGenre: (parent, { id ,updateGenreInput }, { dataSources }) => {
+      return dataSources.genresAPI.updateGenre(id, updateGenreInput);
+    },
+  },
+  Genre: { id: (parent) => parent._id },
 };
 
 module.exports = { resolversGenre }

@@ -23,15 +23,7 @@ const resolversBand = {
             return parent._id;
         },
         genres: async ({ genresIds }, args, {dataSources}) => {
-            const promises = genresIds.map(elem => {
-                return new Promise(async (resolve, reject) => {
-                    const genre = await dataSources.genresAPI.getGenre(elem)
-                    genre.id = genre._id
-                    resolve(genre);
-                })
-            })
-            let genres = await Promise.all(promises)
-            return genres
+            return genresIds.map(elem => dataSources.genresAPI.getGenre(elem));
         },
     },
 }

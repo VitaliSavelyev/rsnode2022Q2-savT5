@@ -6,6 +6,8 @@ const UsersAPI = require('./modules/users/ServerUser')
 const GenresAPI = require("./modules/genres/ServerGenres");
 const BandsAPI = require("./modules/bands/ServerBand");
 const ArtistsAPI = require("./modules/artists/ServerArtist");
+const TracksAPI = require("./modules/tracks/ServerTrack");
+const AlbumsAPI = require("./modules/albums/ServerAlbum");
 
 async function startApolloServer() {
   const server = new ApolloServer({
@@ -17,6 +19,8 @@ async function startApolloServer() {
         genresAPI: new GenresAPI(),
         bandsAPI: new BandsAPI(),
         artistsAPI: new ArtistsAPI(),
+        tracksAPI: new TracksAPI(),
+        albumsAPI: new AlbumsAPI()
       };
     },
     context: ({ req }) => {
@@ -34,18 +38,3 @@ async function startApolloServer() {
 }
 
 startApolloServer();
-
-
-// const {graphqlHTTP} = require('express-graphql');
-// const schema = require('./schema/schema')
-//
-// const app = express();
-//
-// app.use('/graphql', graphqlHTTP({
-//   schema,
-//   graphiql: true
-// }))
-//
-// app.listen(3000, () => {
-//   console.log('Server run 3000 PORT')
-// })

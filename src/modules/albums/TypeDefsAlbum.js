@@ -20,13 +20,12 @@ const typeDefsAlbum = gql`
     
     #Inputs
     input CreateAlbumInput {
-        id: ID!
         name: String!
         released: Int
-        artistsIds: [String]
-        bandsIds: [String]
-        tracksIds: [String]
-        genresIds: [String]
+        artistsIds: [ID]
+        bandsIds: [ID]
+        trackIds: [ID]
+        genresIds: [ID]
         image: String
     }
     
@@ -34,10 +33,10 @@ const typeDefsAlbum = gql`
         id: ID!
         name: String
         released: Int
-        artistsIds: [String]
-        bandsIds: [String]
-        tracksIds: [String]
-        genresIds: [String]
+        artistsIds: [ID]
+        bandsIds: [ID]
+        trackIds: [ID]
+        genresIds: [ID]
         image: String
     }
     
@@ -45,7 +44,7 @@ const typeDefsAlbum = gql`
     type Mutation {
     createAlbum(createAlbumInput: CreateAlbumInput): Album!,
     deleteAlbum(id: ID!): DELETE,
-    updateAlbum(updateAlbumInput: UpdateAlbumInput): Album!,
+    updateAlbum(id: ID!, updateAlbumInput: UpdateAlbumInput): Album!,
     }
 `;
 

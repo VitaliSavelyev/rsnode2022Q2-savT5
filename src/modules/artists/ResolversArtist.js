@@ -23,16 +23,7 @@ const resolversArtist = {
       return parent._id;
     },
     bands: async ({ bandsIds }, args, {dataSources}) => {
-      console.log(bandsIds)
-      const promises = bandsIds.map(elem => {
-        return new Promise(async (resolve, reject) => {
-          const band = await dataSources.bandsAPI.getBand(elem);
-          band.id = band._id;
-          resolve(band);
-        })
-      })
-      let bands = await Promise.all(promises);
-      return bands;
+      return bandsIds.map(elem => dataSources.bandsAPI.getBand(elem));
     },
   },
 };

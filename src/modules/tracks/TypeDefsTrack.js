@@ -4,10 +4,11 @@ const typeDefsTrack = gql`
     type Track {
         id: ID!
         title: String!
-        albums: [Album]
+        album: Album
         bands: [Band]
         duration: Int
         released: Int
+        artists: [Artist]
         genres: [Genre]
     }
     
@@ -19,22 +20,22 @@ const typeDefsTrack = gql`
     
     #Inputs
     input CreateTrackInput {
-        id: ID!
         title: String!
-        albumsIds: [String]
+        albumId: ID
         bandsIds: [String]
         duration: Int
         released: Int
+        artistsIds: [ID]
         genresIds: [String]
     }
     
     input UpdateTrackInput {
-        id: ID!
         title: String
-        albumsIds: [String]
+        albumId: ID
         bandsIds: [String]
         duration: Int
         released: Int
+        artistsIds: [ID]
         genresIds: [String]
     }
     
@@ -42,7 +43,7 @@ const typeDefsTrack = gql`
     type Mutation {
     createTrack(createTrackInput: CreateTrackInput): Track!,
     deleteTrack(id: ID!): DELETE,
-    updateTrack(updateArtistInput: UpdateTrackInput): Track!,
+    updateTrack(id: ID!, updateTrackInput: UpdateTrackInput): Track!,
     }
 `;
 

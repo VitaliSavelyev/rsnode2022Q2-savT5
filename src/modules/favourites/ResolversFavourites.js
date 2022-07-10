@@ -25,28 +25,28 @@ const resolversFavorite = {
     },
 
     genres: async ({ genresIds }, args, { dataSources }) => {
-      if(genresIds?.length) {
+      if(genresIds && genresIds.length) {
         return genresIds.map(elem => dataSources.genresAPI.getGenre(elem));
       }
       return [];
     },
 
     artists: async ({ artistsIds }, args, { dataSources }) => {
-      if(artistsIds?.length) {
+      if(artistsIds && artistsIds.length) {
         return artistsIds.map(elem => dataSources.artistsAPI.getArtist(elem));
       }
       return [];
     },
 
     bands: async ({ bandsIds }, args, { dataSources }) => {
-      if(bandsIds?.length) {
+      if(bandsIds && bandsIds.length) {
         return bandsIds.map(elem => dataSources.bandsAPI.getBand(elem));
       }
       return []
     },
 
     tracks: async ({ tracksIds }, args, { dataSources }) => {
-      if(tracksIds?.length) {
+      if(tracksIds && tracksIds.length) {
         return tracksIds.map(elem => dataSources.tracksAPI.getTrack(elem));
       }
       return [];

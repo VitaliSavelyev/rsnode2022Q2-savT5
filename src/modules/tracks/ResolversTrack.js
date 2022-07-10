@@ -27,19 +27,31 @@ const resolversTrack = {
     },
 
     genres: async ({ genresIds }, args, { dataSources }) => {
-      return genresIds.map(elem => dataSources.genresAPI.getGenre(elem));
+      if(genresIds && genresIds.length) {
+        return genresIds.map(elem => dataSources.genresAPI.getGenre(elem));
+      }
+      return [];
     },
 
     artists: async ({ artistsIds }, args, { dataSources }) => {
-      return artistsIds.map(elem => dataSources.artistsAPI.getArtist(elem));
+      if(artistsIds && artistsIds.length) {
+        return artistsIds.map(elem => dataSources.artistsAPI.getArtist(elem));
+      }
+      return [];
     },
 
     bands: async ({ bandsIds }, args, { dataSources }) => {
-      return bandsIds.map(elem => dataSources.bandsAPI.getBand(elem));
+      if(bandsIds && bandsIds.length) {
+        return bandsIds.map(elem => dataSources.bandsAPI.getBand(elem));
+      }
+      return [];
     },
 
     album: async ({ albumId }, args, { dataSources }) => {
-      return dataSources.albumsAPI.getAlbum(albumId);
+      if (albumId) {
+        return dataSources.albumsAPI.getAlbum(albumId);
+      }
+      return null;
     },
   },
 };

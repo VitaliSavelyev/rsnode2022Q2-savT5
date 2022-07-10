@@ -12,34 +12,16 @@ const typeDefsFavourite = gql`
 
     #Queries
     type Query {
-        favourite(id: ID!): Favourites
+        favourites(id: ID!): Favourites
     }
 
-    #Inputs
-    input AddTrackToFavouritesInput {
-        id: ID!,
-        tracksIds: [String]
-    }
-        input AddBandToFavouritesInput {
-        id: ID!,
-        bandsIds: [String]
-    }
-        input AddArtistToFavouritesInput {
-        id: ID!,
-        artistsIds: [String]
-    }
-        input AddGenreToFavouritesInput {
-        id: ID!,
-        genresIds: [String]
-    }
-    
 
     #Mutations
     type Mutation {
-        addTrackToFavourites(addTrackToFavouritesInput: AddTrackToFavouritesInput): Favourites!
-        addBandToFavourites(addBandToFavouritesInput: AddBandToFavouritesInput): Favourites!
-        addArtistToFavourites(addArtistToFavouritesInput: AddArtistToFavouritesInput): Favourites!
-        addGenreToFavourites(addGenreToFavouritesInput: AddGenreToFavouritesInput): Favourites!
+        addTrackToFavourites(id: ID!): Favourites!
+        addBandToFavourites(id: ID!): Favourites!
+        addArtistToFavourites(id: ID!): Favourites!
+        addGenreToFavourites(id: ID!): Favourites!
     }
 `;
 

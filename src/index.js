@@ -8,6 +8,7 @@ const BandsAPI = require("./modules/bands/ServerBand");
 const ArtistsAPI = require("./modules/artists/ServerArtist");
 const TracksAPI = require("./modules/tracks/ServerTrack");
 const AlbumsAPI = require("./modules/albums/ServerAlbum");
+const FavouritesAPI = require("./modules/favourites/ServerFavourite")
 
 async function startApolloServer() {
   const server = new ApolloServer({
@@ -20,7 +21,8 @@ async function startApolloServer() {
         bandsAPI: new BandsAPI(),
         artistsAPI: new ArtistsAPI(),
         tracksAPI: new TracksAPI(),
-        albumsAPI: new AlbumsAPI()
+        albumsAPI: new AlbumsAPI(),
+        favouritesAPI: new FavouritesAPI(),
       };
     },
     context: ({ req }) => {

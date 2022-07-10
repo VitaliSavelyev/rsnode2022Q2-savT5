@@ -22,9 +22,7 @@ class UsersAPI extends RESTDataSource {
     }
 
     async getJWT(userData) {
-        console.log({ ...userData })
         const data = await this.post(`/login`, {...userData})
-        console.log(data)
         return data
     }
 }

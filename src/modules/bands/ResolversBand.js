@@ -22,8 +22,24 @@ const resolversBand = {
         id: (parent) => {
             return parent._id;
         },
-        genres: async ({ genresIds }, args, {dataSources}) => {
-            return genresIds.map(elem => dataSources.genresAPI.getGenre(elem));
+        genres: async ({genresIds}, args, {dataSources}) => {
+            if (genresIds && genresIds.length) {
+                return genresIds.map(elem => dataSources.genresAPI.getGenre(elem));
+            }
+            return [];
+        },
+        members: async ({members}, args, {dataSources}) => {
+            return members.map(async (elem) => {
+                let member = await dataSources.artistsAPI.getArtist(elem.id)
+                return {
+                    id: elem.id,
+                    firstName: member?.firstName || '',
+                    secondName: member?.secondName || '',
+                    middleName: member?.middleName || '',
+                    instrument: elem?.instrument || '',
+                    years: elem?.years || []
+                }
+            });
         },
     },
 }

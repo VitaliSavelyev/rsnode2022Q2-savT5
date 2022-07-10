@@ -15,9 +15,7 @@ class ArtistsAPI extends RESTDataSource {
         return this.get(`/${encodeURIComponent(id)}`);
     }
     async createArtist(newArtistData) {
-        console.log(15, newArtistData)
         const artist = await this.post('', newArtistData);
-        console.log(16, artist)
         return artist
     }
     async getArtists(offset = 0, limit = 30) {

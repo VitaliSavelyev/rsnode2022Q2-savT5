@@ -23,7 +23,10 @@ const resolversArtist = {
       return parent._id;
     },
     bands: async ({ bandsIds }, args, {dataSources}) => {
-      return bandsIds.map(elem => dataSources.bandsAPI.getBand(elem));
+      if(bandsIds && bandsIds.length) {
+        return bandsIds.map(elem => dataSources.bandsAPI.getBand(elem));
+      }
+      return []
     },
   },
 };

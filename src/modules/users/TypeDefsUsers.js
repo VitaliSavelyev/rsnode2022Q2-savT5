@@ -22,7 +22,6 @@ const typeDefsUsers = gql`
 
     #Inputs
     input CreateUserInput {
-        id: ID
         firstName: String!
         lastName: String!
         password: String!

@@ -16,7 +16,7 @@ const typeDefsBand = gql`
         secondName: String,
         middleName: String,
         instrument: String
-        years: [String]
+        years: [Int]
     }
     
     #Queries
@@ -44,9 +44,6 @@ const typeDefsBand = gql`
     
     input MemberInput {
         id: ID!
-        firstName: String,
-        secondName: String,
-        middleName: String,
         instrument: String
         years: [Int]
     }

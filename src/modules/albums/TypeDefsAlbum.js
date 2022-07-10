@@ -30,7 +30,6 @@ const typeDefsAlbum = gql`
     }
     
     input UpdateAlbumInput {
-        id: ID!
         name: String
         released: Int
         artistsIds: [ID]

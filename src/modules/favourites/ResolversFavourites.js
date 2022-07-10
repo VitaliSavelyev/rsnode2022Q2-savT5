@@ -1,7 +1,7 @@
 const resolversFavorite = {
   Query: {
-    favourites: (parent, { id }, { dataSources }) => {
-      return dataSources.favouritesAPI.getFavourites(id)
+    favourites: (parent, args, { dataSources }) => {
+      return dataSources.favouritesAPI.getFavourites()
     },
   },
   Mutation: {

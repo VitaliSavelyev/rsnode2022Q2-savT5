@@ -12,7 +12,7 @@ const typeDefsFavourite = gql`
 
     #Queries
     type Query {
-        favourites(id: ID!): Favourites
+        favourites: Favourites
     }
 
 
